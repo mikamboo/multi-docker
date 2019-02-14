@@ -15,7 +15,7 @@ script:
 
 after_success:
   # Log in to docker cli
-  - echo "$DOCKER_PASS" | docker login -u "$DOCKER_PASS" --password-stdin
+  - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --password-stdin
 
   # Push images to docker hub
   - docker push mikamboo/tuto-multi-client
