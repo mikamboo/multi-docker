@@ -7,6 +7,7 @@ before_install:
   - echo "Nothing to do, this is a tutorial."
 
 script:
+  # Build docker images
   - docker build -t mikamboo/tuto-multi-client -f ./client
   - docker build -t mikamboo/tuto-multi-nginx -f ./nginx
   - docker build -t mikamboo/tuto-multi-server -f ./client
