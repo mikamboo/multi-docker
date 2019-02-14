@@ -1,0 +1,23 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - echo "Nothing to do, this is a tutorial."
+
+script:
+  - docker build -t mikamboo/tuto-multi-client -f ./client
+  - docker build -t mikamboo/tuto-multi-nginx -f ./nginx
+  - docker build -t mikamboo/tuto-multi-server -f ./client
+  - docker build -t mikamboo/tuto-multi-worker -f ./worker
+
+after_success:
+  # Log in to docker cli
+  - echo "$DOCKER_PASS" | docker login -u "$DOCKER_PASS" --password-stdin
+
+  # Push images to docker hub
+  - docker push mikamboo/tuto-multi-client
+  - docker push mikamboo/tuto-multi-nginx -f ./nginx
+  - docker push mikamboo/tuto-multi-server -f ./client
+  - docker push mikamboo/tuto-multi-worker -f ./worker
