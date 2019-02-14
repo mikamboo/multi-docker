@@ -13,7 +13,7 @@ after_success:
   # Build docker images
   - docker build -t mikamboo/tuto-multi-client -f ./client/Dockerfile .
   - docker build -t mikamboo/tuto-multi-nginx -f ./nginx/Dockerfile .
-  - docker build -t mikamboo/tuto-multi-server -f ./client/Dockerfile .
+  - docker build -t mikamboo/tuto-multi-server -f ./server/Dockerfile .
   - docker build -t mikamboo/tuto-multi-worker -f ./worker/Dockerfile .
 
   # Log in to docker cli
@@ -21,6 +21,6 @@ after_success:
 
   # Push images to docker hub
   - docker push mikamboo/tuto-multi-client
-  - docker push mikamboo/tuto-multi-nginx -f ./nginx
-  - docker push mikamboo/tuto-multi-server -f ./client
-  - docker push mikamboo/tuto-multi-worker -f ./worker
+  - docker push mikamboo/tuto-multi-nginx
+  - docker push mikamboo/tuto-multi-server
+  - docker push mikamboo/tuto-multi-worker
