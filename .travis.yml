@@ -16,7 +16,6 @@ after_success:
   - docker build -t mikamboo/tuto-multi-server -f ./client/Dockerfile .
   - docker build -t mikamboo/tuto-multi-worker -f ./worker/Dockerfile .
 
-after_success:
   # Log in to docker cli
   - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --password-stdin
 
