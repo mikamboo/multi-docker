@@ -1,5 +1,7 @@
 # Docker multi containers deploy
 
+[![Build Status](https://travis-ci.org/mikamboo/multi-docker.svg?branch=master)](https://travis-ci.org/mikamboo/multi-docker)
+
 Tutorial revisited from [StephenGrider multi-docker](https://github.com/StephenGrider/multi-docker).
 
 The app to deploy must be abble to calculate and store items of Fibbonacci sequence.
