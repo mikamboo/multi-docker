@@ -25,17 +25,18 @@ after_success:
   - docker push mikamboo/tuto-multi-server
   - docker push mikamboo/tuto-multi-worker
 
-  # Deploy to AWS EBS
-  deploy:
-    provider: elasticbeanstalk
-    region: eu-west-1
-    app: multi-docker
-    env: MultiDocker-env
-    bucket_name: elasticbeanstalk-eu-west-1-046236623903
-    bucket-path: docker-multi
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key:
-      secure: $AWS_SECRET_KEY
-    on:
-      branch: master
+  
+deploy:
+  # Setup deploy to AWS EBS
+  provider: elasticbeanstalk
+  region: eu-west-1
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-eu-west-1-046236623903
+  bucket-path: docker-multi
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
+  on:
+    branch: master
 
